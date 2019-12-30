@@ -18,6 +18,10 @@ export default class ConsentManager {
         return this.config.cookieName || 'klaro'
     }
 
+    get cookieDomain(){
+        return this.config.cookieDomain
+    }
+
     watch(watcher){
         if (!this.watchers.has(watcher))
             this.watchers.add(watcher)
@@ -126,7 +130,7 @@ export default class ConsentManager {
         if (this.consents === null)
             deleteCookie(this.cookieName)
         const v = JSON.stringify(this.consents)
-        setCookie(this.cookieName, v, this.config.cookieExpiresAfterDays || 120)
+        setCookie(this.cookieName, v, this.config.cookieExpiresAfterDays || 120, this.cookieDomain)
         this.confirmed = true
         this.changed = false
     }
