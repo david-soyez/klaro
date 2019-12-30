@@ -27,14 +27,14 @@ export function getCookie(name) {
 
 
 //https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
-export function setCookie(name, value, days) {
+export function setCookie(name, value, days, domain) {
     let expires = "";
     if (days) {
         const date = new Date();
         date.setTime(date.getTime() + (days*24*60*60*1000));
         expires = "; expires=" + date.toUTCString();
     }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/"+(domain?"; domain="+domain : "");
 }
 
 export function deleteCookie(name, path, domain) {
