@@ -36,7 +36,6 @@ export default class ConsentModal extends React.Component {
                 </div>
                 <div className="cm-footer">
                     <button className="cm-btn cm-btn-success" type="button" onClick={saveAndHide}>{t([manager.confirmed ? 'close' : 'save'])}</button>
-                    <a target="_blank" rel="noopener noreferrer" className="cm-powered-by" href={config.poweredBy || 'https://klaro.kiprotect.com'}>{t(['poweredBy'])}</a>
                 </div>
             </div>
         </div>
